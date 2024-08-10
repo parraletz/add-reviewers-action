@@ -34,11 +34,6 @@ jobs:
           push: true
           author_name: github-actions
           author_email: github-actions@github.com
-      - name: Mark command as done ✅
-        uses: peter-evans/create-or-update-comment@v4
-        with:
-          comment-id: ${{ github.event.comment.id }}
-          reactions: hooray
       - name: Release
         run: |
           npm run semantic-release
