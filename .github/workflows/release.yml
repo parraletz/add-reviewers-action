@@ -37,7 +37,7 @@ jobs:
       - name: Mark command as done ✅
         uses: peter-evans/create-or-update-comment@v4
         with:
-          comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
+          comment-id: ${{ github.event.comment.id }}
           reactions: hooray
       - name: Release
         run: |
