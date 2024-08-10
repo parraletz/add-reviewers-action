@@ -22,6 +22,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Install dependencies 📦
+        run: npm install
       - name: Build typescript 📦
         run: npm run build && find dist/index.js
       - name: Commit and push dist folder 🚀
