@@ -14,7 +14,7 @@
     "validate-typescript": "tsc -p tsconfig.json --noEmit",
     "generate-dist": "ncc build src/index.ts",
     "build:clean": "rimraf dist; exit 0",
-    "prepare": "husky",
+    "prepare": "node .husky/install.mjs",
     "typos": "chmod +x scripts/check_typos.sh && ./scripts/check_typos.sh"
   },
   "keywords": [],
