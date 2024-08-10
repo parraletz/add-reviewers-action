@@ -19,15 +19,26 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Node ⚙️
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Prepare
-        run: |
-          pnpm install
-          pnpm run build
+      - name: Build typescript 📦
+        run: npm run build && find dist/index.js
+      - name: Commit and push dist folder 🚀
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'chore(dist): generate dist folder'
+          add: 'dist'
+          push: true
+          author_name: github-actions
+          author_email: github-actions@github.com
+      - name: Mark command as done ✅
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
+          reactions: hooray
       - name: Release
         run: |
-          pnpm release
+          npm run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}

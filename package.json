@@ -16,7 +16,7 @@
     "build:clean": "rimraf dist; exit 0",
     "prepare": "node .husky/install.mjs",
     "typos": "chmod +x scripts/check_typos.sh && ./scripts/check_typos.sh",
-    "release": "semantic-release"
+    "semantic-release": "semantic-release"
   },
   "keywords": [],
   "author": "parraletz@gmail.com",
