@@ -14,15 +14,14 @@ export default {
         registries: [
           {
             url: 'docker.io',
-            imageName: "docker.io/parraletz/add-code-reviewers",
+            imageName: 'docker.io/parraletz/add-code-reviewers',
             user: 'parraletz',
             password: 'DOCKER_PASSWORD'
-
           }
         ],
         additionalTags: ['latest', 'next']
       }
-    ]
+    ],
     '@semantic-release/github',
     [
       '@semantic-release/exec',
