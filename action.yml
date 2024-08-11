@@ -3,8 +3,12 @@ description: 'Action to add reviews to a pull request'
 author: 'Alex Parra'
 
 runs:
-  using: node20
-  main: 'dist/index.js'
+  using: docker
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.token }}
+    - ${{ inputs.reviewers-file-path }}
+    - ${{ inputs.number }}
 
 inputs:
   token:

@@ -6,6 +6,7 @@
   "scripts": {
     "prepublishOnly": "npm i && npm run build",
     "build": "npm run validate-typescript && npm run build:clean && npm run generate-dist",
+    "build:docker": "npm run validate-typescript && npm run build:clean && npm run generate-dist:docker",
     "test": "rimraf coverage && npm run test:unit",
     "test:unit": "vitest run --coverage",
     "lint": "eslint . --ext .js,.ts",
@@ -13,6 +14,7 @@
     "lint:yaml": "chmod +x scripts/lint_yaml.sh && ./scripts/lint_yaml.sh",
     "validate-typescript": "tsc -p tsconfig.json --noEmit",
     "generate-dist": "ncc build src/index.ts",
+    "generate-dist:docker": "ncc build src/docker.ts",
     "build:clean": "rimraf dist; exit 0",
     "prepare": "node .husky/install.mjs",
     "typos": "chmod +x scripts/check_typos.sh && ./scripts/check_typos.sh",
@@ -22,10 +24,12 @@
   "author": "parraletz@gmail.com",
   "license": "MIT",
   "devDependencies": {
+    "@codedependant/semantic-release-docker": "^5.0.3",
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-angular": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
+    "@eclass/semantic-release-docker": "^4.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/exec": "^6.0.3",

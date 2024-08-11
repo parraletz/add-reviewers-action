@@ -7,6 +7,22 @@ export default {
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     '@semantic-release/changelog',
+    [
+      '@eclass/semantic-release-docker',
+      {
+        baseImageName: 'add-code-reviewers',
+        registries: [
+          {
+            url: 'docker.io',
+            imageName: "docker.io/parraletz/add-code-reviewers",
+            user: 'parraletz',
+            password: 'DOCKER_PASSWORD'
+
+          }
+        ],
+        additionalTags: ['latest', 'next']
+      }
+    ]
     '@semantic-release/github',
     [
       '@semantic-release/exec',
