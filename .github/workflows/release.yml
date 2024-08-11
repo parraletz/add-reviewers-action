@@ -35,6 +35,7 @@ jobs:
           author_name: github-actions
           author_email: github-actions@github.com
       - run: docker build --tag parraletz/add-reviewers .
+      - run: docker build --tag occmundial/add-reviewers .
       - name: Release
         run: |
           npm run semantic-release
