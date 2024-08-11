@@ -56,3 +56,5 @@ jobs:
           npm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
