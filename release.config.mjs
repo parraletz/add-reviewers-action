@@ -15,7 +15,7 @@ export default {
           {
             url: 'docker.io',
             imageName: 'docker.io/parraletz/add-code-reviewers',
-            user: 'parraletz',
+            user: 'DOCKER_USER',
             password: 'DOCKER_PASSWORD'
           }
         ],
