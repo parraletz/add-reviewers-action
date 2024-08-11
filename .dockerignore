@@ -30,5 +30,6 @@
 **/values.dev.yaml
 **/build
 **/dist
+**/src/index.ts
 LICENSE
 README.md
