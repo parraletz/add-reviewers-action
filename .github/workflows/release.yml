@@ -10,16 +10,6 @@ permissions:
   pull-requests: write
 
 jobs:
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-     - name: Checkout 🛬
-       uses: actions/checkout@v4
-       with:
-         fetch-depth: 0
-         persist-credentials: true
-     - run: docker build --tag parraletz/add-reviewers .
-        
   release:
     runs-on: ubuntu-latest
     steps:
@@ -44,6 +34,7 @@ jobs:
           push: true
           author_name: github-actions
           author_email: github-actions@github.com
+      - run: docker build --tag parraletz/add-reviewers .
       - name: Release
         run: |
           npm run semantic-release
