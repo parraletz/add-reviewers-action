@@ -8,18 +8,9 @@ export default {
     '@semantic-release/release-notes-generator',
     '@semantic-release/changelog',
     [
-      '@eclass/semantic-release-docker',
+      'semantic-release-docker',
       {
-        baseImageName: 'add-code-reviewers',
-        registries: [
-          {
-            url: 'docker.io',
-            imageName: 'docker.io/parraletz/add-code-reviewers',
-            user: 'DOCKER_USER',
-            password: 'DOCKER_PASSWORD'
-          }
-        ],
-        additionalTags: ['latest', 'next']
+        name: 'parraletz/add-reviewers'
       }
     ],
     '@semantic-release/github',
