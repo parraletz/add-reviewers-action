@@ -1,4 +1,4 @@
-name: 'Add reviewers to pull request'
+name: 'add-code-reviewers'
 description: 'Action to add reviews to a pull request'
 author: 'Alex Parra'
 
