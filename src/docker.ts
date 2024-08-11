@@ -11,6 +11,8 @@ const fileContent = fs.readFileSync(reviewersFilePath, 'utf8')
 const reviewersData = yaml.load(fileContent) as { reviewers: string[] }
 const reviewers = reviewersData.reviewers
 
+console.log('Reviewers:', reviewers)
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN || process.env.PLUGIN_GITHUB_TOKEN
 })
