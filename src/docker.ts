@@ -2,8 +2,10 @@ import { Octokit } from '@octokit/rest'
 import * as fs from 'fs'
 import yaml from 'js-yaml'
 
-const prNumber = process.env.PR_NUMBER
-const reviewersFilePath = process.env.REVIEWERS_FILE_PATH as string
+const prNumber = process.env.PR_NUMBER || process.env.PLUGIN_PR_NUMBER
+const reviewersFilePath =
+  (process.env.REVIEWERS_FILE_PATH as string) ||
+  (process.env.PLUGIN_REVIEWERS_FILE_PATH as string)
 const fileContent = fs.readFileSync(reviewersFilePath, 'utf8')
 
 const reviewersData = yaml.load(fileContent) as { reviewers: string[] }
@@ -15,17 +17,19 @@ const octokit = new Octokit({
 
 const remoteUrl =
   (process.env.CI_REMOTE_URL as string) ||
-  (process.env.DRONE_REPO_LINK as string)
+  (process.env.DRONE_REPO_LINK as string) ||
+  (process.env.PLUGIN_REPO_LINK as string)
 
 const repoMatch = remoteUrl.match(/github\.com\/([^\/]+)\/([^\/]+)(\.git)?$/)
 
-if (!repoMatch) {
-  console.error('Error to get owner and repo from remote url')
-  process.exit(1)
-}
-
-const owner = repoMatch[1]
-const repo = repoMatch[2]
+const owner =
+  (repoMatch && repoMatch[1]) ||
+  process.env.PLUGIN_GITHUB_OWNER ||
+  process.env.GITHUB_OWNER
+const repo =
+  (repoMatch && repoMatch[2]) ||
+  process.env.PLUGIN_GITHUB_REPO ||
+  process.env.GITHUB_REPO
 
 async function addReviewers() {
   try {
