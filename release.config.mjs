@@ -9,12 +9,15 @@ export default {
     '@semantic-release/changelog',
     [
       '@eclass/semantic-release-docker',
-      {
-        url: 'docker.io',
-        imageName: 'docker.io/parraletz/add-reviewers',
-        user: 'DOCKER_REGISTRY_USER',
-        password: 'DOCKER_REGISTRY_PASSWORD'
-      }
+      baseImageName: 'add-reviewers',
+      registries: [
+        {
+          url: 'docker.io',
+          imageName: 'docker.io/parraletz/add-reviewers',
+          user: 'DOCKER_REGISTRY_USER',
+          password: 'DOCKER_REGISTRY_PASSWORD'
+        }
+      ]
     ],
     '@semantic-release/github',
     [
