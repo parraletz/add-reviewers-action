@@ -8,9 +8,12 @@ export default {
     '@semantic-release/release-notes-generator',
     '@semantic-release/changelog',
     [
-      'semantic-release-docker',
+      '@eclass/semantic-release-docker',
       {
-        name: 'parraletz/add-reviewers'
+        url: 'docker.io',
+        imageName: 'docker.io/parraletz/add-reviewers',
+        user: 'DOCKER_REGISTRY_USER',
+        password: 'DOCKER_REGISTRY_PASSWORD'
       }
     ],
     '@semantic-release/github',
