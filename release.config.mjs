@@ -13,6 +13,12 @@ export default {
         name: 'parraletz/add-reviewers'
       }
     ],
+    [
+      '@semantic-release-plus/docker',
+      {
+        name: 'occmundial/add-reviewers'
+      }
+    ],
     '@semantic-release/github',
     [
       '@semantic-release/exec',

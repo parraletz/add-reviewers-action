@@ -12,7 +12,7 @@ const reviewersData = yaml.load(fileContent) as { reviewers: string[] }
 const reviewers = reviewersData.reviewers
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN
+  auth: process.env.GITHUB_TOKEN || process.env.PLUGIN_GITHUB_TOKEN
 })
 
 const remoteUrl =
