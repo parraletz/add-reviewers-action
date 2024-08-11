@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: false
-          tags: ${{ secrets.DOCKER_USERNAME }}/add-reviwers
+          tags: parraletz/add-reviwers
   release:
     runs-on: ubuntu-latest
     steps:
