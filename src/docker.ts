@@ -9,7 +9,7 @@ const reviewersFilePath =
 const fileContent = fs.readFileSync(reviewersFilePath, 'utf8')
 
 const reviewersData = yaml.load(fileContent) as { reviewers: string[] }
-const reviewers = reviewersData.reviewers
+let reviewers = reviewersData.reviewers
 
 console.log('Reviewers:', reviewers)
 
@@ -32,6 +32,12 @@ const repo =
   (repoMatch && repoMatch[2]) ||
   process.env.PLUGIN_GITHUB_REPO ||
   process.env.GITHUB_REPO
+
+const commitAuthor = process.env.CI_COMMIT_AUTHOR
+if (commitAuthor) {
+  reviewers = reviewers.filter(reviewer => reviewer !== commitAuthor)
+  console.log('Filtered Reviewers:', reviewers)
+}
 
 async function addReviewers() {
   try {
