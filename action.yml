@@ -3,22 +3,15 @@ description: 'Action to add reviews to a pull request'
 author: 'Alex Parra'
 
 runs:
-  using: docker
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.token }}
-    - ${{ inputs.reviewers-file-path }}
-    - ${{ inputs.number }}
+  using: node20
+  main: 'dist/index.js'
 
 inputs:
-  token:
+  github_token:
     description: 'GitHub Token'
     required: true
   reviewers-file-path:
     description: 'Reviewers file'
-    required: true
-  number:
-    description: 'Pull request number'
     required: true
 
 outputs:
