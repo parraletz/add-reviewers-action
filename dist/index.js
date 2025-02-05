@@ -35733,7 +35733,7 @@ var jsYaml = {
 async function run() {
     try {
         const token = core.getInput('github_token') || process.env.GITHUB_TOKEN || '';
-        const reviewersFilePath = core.getInput('reviewers-file-path');
+        const reviewersFilePath = core.getInput('reviewers_file_path');
         const fileContent = external_fs_.readFileSync(reviewersFilePath, 'utf8');
         const reviewersData = js_yaml.load(fileContent);
         const reviewers = reviewersData.reviewers;
