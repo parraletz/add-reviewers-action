@@ -8,7 +8,7 @@ export async function run() {
     const token =
       core.getInput('github_token') || process.env.GITHUB_TOKEN || ''
 
-    const reviewersFilePath = core.getInput('reviewers-file-path')
+    const reviewersFilePath = core.getInput('reviewers_file_path')
 
     const fileContent = fs.readFileSync(reviewersFilePath, 'utf8')
     const reviewersData = yaml.load(fileContent) as { reviewers: string[] }

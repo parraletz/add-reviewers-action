@@ -12,6 +12,7 @@ inputs:
     required: false
   reviewers_file_path:
     description: 'Reviewers file'
+    default: '.bakery/reviewers.yml'
     required: true
 
 outputs:
