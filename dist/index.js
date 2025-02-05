@@ -35732,7 +35732,7 @@ var jsYaml = {
 
 async function run() {
     try {
-        const token = core.getInput('repo-token', { required: true });
+        const token = process.env.GITHUB_TOKEN || '';
         const reviewersFilePath = core.getInput('reviewers-file-path');
         const fileContent = external_fs_.readFileSync(reviewersFilePath, 'utf8');
         const reviewersData = js_yaml.load(fileContent);
