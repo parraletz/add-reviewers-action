@@ -5,7 +5,8 @@ import yaml from 'js-yaml'
 
 export async function run() {
   try {
-    const token = process.env.GITHUB_TOKEN || ''
+    const token =
+      core.getInput('github_token') || process.env.GITHUB_TOKEN || ''
 
     const reviewersFilePath = core.getInput('reviewers-file-path')
 
