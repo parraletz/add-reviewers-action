@@ -7,9 +7,6 @@ runs:
   main: 'dist/index.js'
 
 inputs:
-  github_token:
-    description: 'GitHub Token'
-    required: true
   reviewers-file-path:
     description: 'Reviewers file'
     required: true
