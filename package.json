@@ -1,6 +1,6 @@
 {
   "name": "add-reviewers-action",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
