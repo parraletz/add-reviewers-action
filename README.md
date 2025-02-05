@@ -36,13 +36,13 @@ This GitHub Action automatically requests reviewers for a pull request based on 
         steps:
           - uses: actions/checkout@v2
           - name: Request Reviewers
-            uses: ./
+            uses: parraletz/add-reviewers-action@v1.2.4
             with:
-              repo-token: \${{ secrets.GITHUB_TOKEN }}
-              reviewers-file-path: 'path/to/reviewers.yml'
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              reviewers_file_path: '.bakery/reviewers.yml' # Optional, default is '.bakery/reviewers.yml'
     ```
 
-2. Create a `reviewers.yml` file in your repository with the following content:
+2. Create a `.bakery/reviewers.yml` file in your repository with the following content:
     ```yaml
     reviewers:
       - reviewer1
